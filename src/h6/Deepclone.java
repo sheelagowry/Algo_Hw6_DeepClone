@@ -75,6 +75,14 @@ public class Deepclone {
 
 		 System.out.println("Cloned Object after updating original object:" + " " + "Name:" + " " + clonedpatient.name + ", " + "Age:" + " " + clonedpatient.age + ", " + "ID:" + " " + clonedpatient.id + ", " + "MedicalTest:" + " " + clonedpatient.medicaltest.MTest1 + ", " + clonedpatient.medicaltest.MTest2 + ", " + clonedpatient.medicaltest.MTest3 );
 
+		 String newLine = System.getProperty("line.separator"); // this is to seperate line
+
+	     System.out.println(" " + newLine + " "); // print newline 
+		 
+		 DeptSurveyClone.main(args); // this is to print another main method..here it printsthe main method of "DeptSurveyClone"
+		 CloningPersonWorkExperience.main(args);
+		 CloneChild .main(args);
+	 
 	 }
 	 
 	 
@@ -106,7 +114,6 @@ public class Deepclone {
 	 }
 	 protected Object clone() throws CloneNotSupportedException
 	    {
-		 //DepartmentSurvey DptSurvey  = (DepartmentSurvey) super.clone();
 	 
 		  return super.clone();
 	    }
@@ -118,7 +125,7 @@ public class Deepclone {
   class DeptSurveyClone {
 	 public static void main(String[] args) throws CloneNotSupportedException{
 		 DepartmentSurvey DptSurvey = new DepartmentSurvey ("Tallinn University", "IT-deptartment", 2015, 1000, 50);
-		// Patient patient = new Patient(1112, 35, "Enriko", tests);
+		
 	     System.out.println("Output test:2, College Department Survey");
 		
 	     //original
@@ -137,15 +144,184 @@ public class Deepclone {
 		
 		 System.out.println("Updated object:" + " " + "UniversityName:" + " " + DptSurvey.UniversityName + ", " + "DepartmentName:" + " " + DptSurvey.DeptName + ", " + "SurveyYear:" + " " + DptSurvey.SurveyYear + ", " + "No Of Students:" + " " + DptSurvey.NoOfStudents + ", " + "No Of Course:" + " " + DptSurvey.NoOfCourse );
 
-		 System.out.println("Cloned object:" + " " + "UniversityName:" + " " + clonedDepartmentSurvey.UniversityName + ", " + "DepartmentName:" + " " + clonedDepartmentSurvey.DeptName + ", " + "SurveyYear:" + " " + clonedDepartmentSurvey.SurveyYear + ", " + "No Of Students:" + " " + clonedDepartmentSurvey.NoOfStudents + ", " + "No Of Course:" + " " + clonedDepartmentSurvey.NoOfCourse );
+		 System.out.println("Cloned Object after updating original object:" + " " + "UniversityName:" + " " + clonedDepartmentSurvey.UniversityName + ", " + "DepartmentName:" + " " + clonedDepartmentSurvey.DeptName + ", " + "SurveyYear:" + " " + clonedDepartmentSurvey.SurveyYear + ", " + "No Of Students:" + " " + clonedDepartmentSurvey.NoOfStudents + ", " + "No Of Course:" + " " + clonedDepartmentSurvey.NoOfCourse );
 
+		 
+		 String newLine = System.getProperty("line.separator"); // this is to seperate line
+
+	     System.out.println(" " + newLine + " "); // print newline s
 	 }
 	 
 	
  } 
 
- 
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////
   
+  //Test: 3 Person work experience.
+  
+  class PersonWorkExperience implements Cloneable{
+		
+		
+		 String PersonName; 
+		 String OfficeName; 
+         String Workposition;
+		 int PersonID; 
+		 int WorkPeriod; 
+		 int AnnualSalary;
+		 
+		 public PersonWorkExperience (String PersonName, String OfficeName, String Workposition, int PersonID, int WorkPeriod, int AnnualSalary ){
+			 
+			 this.PersonName = PersonName;
+			 this.OfficeName = OfficeName;
+			 this.Workposition = Workposition;
+			 this.PersonID = PersonID;
+			 this.WorkPeriod = WorkPeriod;
+			 this.AnnualSalary = AnnualSalary;
+			 
+		 }
+		 	 	 
+		 protected Object clone() throws CloneNotSupportedException
+		    {
+		 
+			  return super.clone();
+		    }
+		 
+  }
+   class CloningPersonWorkExperience {
+	  public static void main(String args[]) throws CloneNotSupportedException{
+		  PersonWorkExperience personworkexp =new PersonWorkExperience("Ram","SwedBank", "Analyst", 1462, 2, 1000);
+	     
+		     System.out.println("Output test:3, Persons WORK Experience");
+		     
+			 System.out.println("Original object:" + " " + "Person Name:" + " " + personworkexp.PersonName + ", " + "ID:" + " " + personworkexp.PersonID + ", " + " OfficeName:" + " " + personworkexp.OfficeName + ", " + "Work Position:" + " " + personworkexp.Workposition + ", " + "Work, Years of Experience:" + " " + personworkexp.WorkPeriod + ", " + "Annual Salary in EUR:" + " " + personworkexp.AnnualSalary );
 
+		     //clone object
+		     PersonWorkExperience  clonedPersonWorkExperience = (PersonWorkExperience) personworkexp.clone();
+
+			 System.out.println("Cloned object:" + " " + "Person Name:" + " " + clonedPersonWorkExperience.PersonName + ", " + "ID:" + " " + clonedPersonWorkExperience.PersonID + ", " + " OfficeName:" + " " + clonedPersonWorkExperience.OfficeName + ", " + "Work Position:" + " " + clonedPersonWorkExperience.Workposition + ", " + "Work, Years of Experience:" + " " + clonedPersonWorkExperience.WorkPeriod + ", " + "Annual Salary in EUR:" + " " + clonedPersonWorkExperience.AnnualSalary );
+     
+	    // update
+			 personworkexp.Workposition = "Product Manager";
+			 personworkexp.WorkPeriod = 4;
+			 personworkexp.AnnualSalary = 2000;
+			 
+			 System.out.println("Updated object:" + " " + "Person Name:" + " " + personworkexp.PersonName + ", " + "ID:" + " " + personworkexp.PersonID + ", " + " OfficeName:" + " " + personworkexp.OfficeName + ", " + "Work Position:" + " " + personworkexp.Workposition + ", " + "Work, Years of Experience:" + " " + personworkexp.WorkPeriod + ", " + "Annual Salary in EUR:" + " " + personworkexp.AnnualSalary );
+
+			 System.out.println("Cloned Object after updating original object:" + " " + "Person Name:" + " " + clonedPersonWorkExperience.PersonName + ", " + "ID:" + " " + clonedPersonWorkExperience.PersonID + ", " + " OfficeName:" + " " + clonedPersonWorkExperience.OfficeName + ", " + "Work Position:" + " " + clonedPersonWorkExperience.Workposition + ", " + "Work, Years of Experience:" + " " + clonedPersonWorkExperience.WorkPeriod + ", " + "Annual Salary in EUR:" + " " + clonedPersonWorkExperience.AnnualSalary );
+
+			 String newLine = System.getProperty("line.separator"); // this is to seperate line
+
+		     System.out.println(" " + newLine + " "); // print newline 
+	  }
+	}
+  
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   
+   //Test 4: Sibilings BMI(Body mass index) details
+   
+   //Child1
+   
+   class Child1 implements Cloneable{
+		
+		String Name; 
+		int Age;
+		int Height;
+		int Weight;
+		int BMI;
+		
+		//MedicalTest constructor
+		public Child1 (String Name, int Age, int Height, int Weight, int BMI){
+			
+			this.Name = Name;
+			this.Age = Age;
+			this.Height = Height;
+			this.Weight = Weight;
+			this.BMI = BMI;
+		}
+		
+		protected Object clone() throws CloneNotSupportedException
+	    {
+	        return super.clone();
+	    }
+
+	}
+   class Child2 implements Cloneable{
+		
+	   String Name; 
+		int Age;
+		int Height;
+		int Weight;
+		int BMI;
+		
+		//MedicalTest constructor
+		public Child2 (String Name, int Age, int Height, int Weight, int BMI){
+			
+			this.Name = Name;
+			this.Age = Age;
+			this.Height = Height;
+			this.Weight = Weight;
+			this.BMI = BMI;
+		}
+		 
+		 //Overriding clone() method to create a deep copy of an object.
+		 protected Object clone() throws CloneNotSupportedException
+		    {
+			 return super.clone();
+		 
+		    }
+		 		
+	}
+   
+   class CloneChild {
+		  public static void main(String args[]) throws CloneNotSupportedException{
+			  
+			  Child1 child1 = new Child1 ("Uku",5 , 109, 19, 16);
+			  Child2 child2 = new Child2 ("Elora", 3, 93, 14, 13);
+			  
+			  System.out.println("Output test:4, Sibilings BMI details");
+			     
+			  //original
+				 System.out.println("Original object of Child1:" + " " + "Child1 Name:" + " " + child1.Name + ", " + "Child1 Age:" + " " + child1.Age + ", " + " Child1 Height in CM:" + " " + child1.Height + ", " + "Child1 Weight in kg:" + " " + child1.Weight + ", " + "Child1 BMI:" + " " + child1.BMI );
+				 System.out.println("Original object of Child2:" + " " + "Child2 Name:" + " " + child2.Name + ", " + "Child2 Age:" + " " + child2.Age + ", " + " Child2 Height in CM:" + " " + child2.Height + ", " + "Child2 Weight in kg:" + " " + child2.Weight + ", " + "Child2 BMI:" + " " + child2.BMI );
+
+             //Clone 
+			     Child1  clonedChild1 = (Child1) child1.clone();
+			     Child2  clonedChild2 = (Child2) child2.clone();
+			     
+			     System.out.println("Cloned object of Child1:" + " " + "Child1 Name:" + " " + clonedChild1.Name + ", " + "Child1 Age:" + " " + clonedChild1.Age + ", " + " Child1 Height in CM:" + " " + clonedChild1.Height + ", " + "Child1 Weight in kg:" + " " + clonedChild1.Weight + ", " + "Child1 BMI:" + " " + clonedChild1.BMI );
+				 System.out.println("Cloned object of Child2:" + " " + "Child2 Name:" + " " + clonedChild2.Name + ", " + "Child2 Age:" + " " + clonedChild2.Age + ", " + " Child2 Height in CM:" + " " + clonedChild2.Height + ", " + "Child2 Weight in kg:" + " " + clonedChild2.Weight + ", " + "Child2 BMI:" + " " + clonedChild2.BMI );
+				 
+			//update child 1
+				 child1.Age = 10;
+				 child1.Height = 137;
+				 child1.Weight = 31;
+				 child1.BMI = 17;
+				 
+		  // update child 2
+				 
+				 child2.Age = 8;
+				 child2.Height = 127;
+				 child2.Weight = 25;
+				 child2.BMI = 16;
+				 
+		  //Updated
+				 System.out.println("Updated object of Child1:" + " " + "Child1 Name:" + " " + child1.Name + ", " + "Child1 Age:" + " " + child1.Age + ", " + " Child1 Height in CM:" + " " + child1.Height + ", " + "Child1 Weight in kg:" + " " + child1.Weight + ", " + "Child1 BMI:" + " " + child1.BMI );
+				 System.out.println("Updated object of Child2:" + " " + "Child2 Name:" + " " + child2.Name + ", " + "Child2 Age:" + " " + child2.Age + ", " + " Child2 Height in CM:" + " " + child2.Height + ", " + "Child2 Weight in kg:" + " " + child2.Weight + ", " + "Child2 BMI:" + " " + child2.BMI );
+
+        // cloned after updated
+				 System.out.println("Cloned Object after updating original object of Child1:" + " " + "Child1 Name:" + " " + clonedChild1.Name + ", " + "Child1 Age:" + " " + clonedChild1.Age + ", " + " Child1 Height in CM:" + " " + clonedChild1.Height + ", " + "Child1 Weight in kg:" + " " + clonedChild1.Weight + ", " + "Child1 BMI:" + " " + clonedChild1.BMI );
+				 System.out.println("Cloned Object after updating original object of Child2:" + " " + "Child2 Name:" + " " + clonedChild2.Name + ", " + "Child2 Age:" + " " + clonedChild2.Age + ", " + " Child2 Height in CM:" + " " + clonedChild2.Height + ", " + "Child2 Weight in kg:" + " " + clonedChild2.Weight + ", " + "Child2 BMI:" + " " + clonedChild2.BMI );
+		
+		// for free space
+				 String newLine = System.getProperty("line.separator"); // this is to seperate line
+			     System.out.println(" " + newLine + " "); // print newline 
+
+			     
+
+				 
+				
+			  
+		  }
+   }
 
  
