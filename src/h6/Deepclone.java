@@ -16,7 +16,7 @@ class MedicalTest implements Cloneable {
 	}
 
 	protected Object clone() throws CloneNotSupportedException {
-		return super.clone(); //super class part of the object get clone
+		return super.clone(); // super class part of the object get clone
 	}
 
 }
@@ -49,10 +49,10 @@ class Patient implements Cloneable {
 
 public class Deepclone {
 	public static void main(String[] args) throws CloneNotSupportedException {
-		
+
 		MedicalTest tests = new MedicalTest("UltraSound", "Echo cardiogram", "X-ray");
 		Patient patient = new Patient(1112, 35, "Enriko", tests);
-		
+
 		System.out.println("Output test:1, Patient DB");
 
 		// original
@@ -68,30 +68,31 @@ public class Deepclone {
 				+ clonedpatient.medicaltest.MTest1 + ", " + clonedpatient.medicaltest.MTest2 + ", "
 				+ clonedpatient.medicaltest.MTest3);
 
-		// updated the surname of the patient and also the medicaltest
-		// surname is updated and Echo cardiogram is updated to Blood test.
+		// updated the surname and age of the patient and also the medicaltest
+		// surname is updated to Enriko john, Age is updated to 40 and Echo cardiogram is updated to Blood test.
 
 		patient.name = "Enriko john";
+		patient.age = 40;
 		patient.medicaltest.MTest2 = "Blood test";
 
 		System.out.println("updated object:" + " " + "Name:" + " " + patient.name + ", " + "Age:" + " " + patient.age
 				+ ", " + "ID:" + " " + patient.id + ", " + "MedicalTests:" + " " + patient.medicaltest.MTest1 + ", "
 				+ patient.medicaltest.MTest2 + ", " + patient.medicaltest.MTest3);
 
-		//Clone after updating the object
+		// Clone after updating the object
 		System.out.println("Cloned Object after updating original object:" + " " + "Name:" + " " + clonedpatient.name
 				+ ", " + "Age:" + " " + clonedpatient.age + ", " + "ID:" + " " + clonedpatient.id + ", "
 				+ "MedicalTest:" + " " + clonedpatient.medicaltest.MTest1 + ", " + clonedpatient.medicaltest.MTest2
 				+ ", " + clonedpatient.medicaltest.MTest3);
 
-		
-	    // this is to seperate line
-		String newLine = System.getProperty("line.separator"); 
-        System.out.println(" " + newLine + " "); // print newline
-        
-     // this is to print another main method..here it prints the main method of other 4 tests.
-		
-		DeptSurveyClone.main(args); 
+		// this is to seperate line
+		String newLine = System.getProperty("line.separator");
+		System.out.println(" " + newLine + " "); // print newline
+
+		// this is to print another main method..here it prints the main method
+		// of other 4 tests.
+
+		DeptSurveyClone.main(args);
 		CloningPersonWorkExperience.main(args);
 		CloneChild.main(args);
 		ClonedOlymbicDetails.main(args);
@@ -102,7 +103,8 @@ public class Deepclone {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Test 2: College Department Survey - Test2 is the College Department Survey here it updateds the survey of yesr 2015 to 2016.
+// Test 2: College Department Survey - Test2 is the College Department Survey
+// here it updateds the survey of year 2015 to 2016.
 
 class DepartmentSurvey implements Cloneable {
 
@@ -131,7 +133,7 @@ class DepartmentSurvey implements Cloneable {
 
 class DeptSurveyClone {
 	public static void main(String[] args) throws CloneNotSupportedException {
-		
+
 		DepartmentSurvey DptSurvey = new DepartmentSurvey("Tallinn University", "IT-deptartment", 2015, 1000, 50);
 
 		System.out.println("Output test:2, College Department Survey");
@@ -142,7 +144,7 @@ class DeptSurveyClone {
 				+ ", " + "No Of Students:" + " " + DptSurvey.NoOfStudents + ", " + "No Of Course:" + " "
 				+ DptSurvey.NoOfCourse);
 
-		// cloned 
+		// cloned
 		DepartmentSurvey clonedDepartmentSurvey = (DepartmentSurvey) DptSurvey.clone();
 
 		System.out.println("Cloned object:" + " " + "UniversityName:" + " " + clonedDepartmentSurvey.UniversityName
@@ -162,7 +164,7 @@ class DeptSurveyClone {
 				+ ", " + "No Of Students:" + " " + DptSurvey.NoOfStudents + ", " + "No Of Course:" + " "
 				+ DptSurvey.NoOfCourse);
 
-		//Cloned afted updating.
+		// Cloned afted updating.
 		System.out.println("Cloned Object after updating original object:" + " " + "UniversityName:" + " "
 				+ clonedDepartmentSurvey.UniversityName + ", " + "DepartmentName:" + " "
 				+ clonedDepartmentSurvey.DeptName + ", " + "SurveyYear:" + " " + clonedDepartmentSurvey.SurveyYear
@@ -170,15 +172,15 @@ class DeptSurveyClone {
 				+ clonedDepartmentSurvey.NoOfCourse);
 
 		// this is toadd some white space.
-		String newLine = System.getProperty("line.separator"); 
-		System.out.println(" " + newLine + " "); 
+		String newLine = System.getProperty("line.separator");
+		System.out.println(" " + newLine + " ");
 	}
 
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Test: 3 Person work experience - Test 3 is the persons work experience.
+// Test: 3 Person work experience - Test 3 is the persons work experience before and after his promotion.
 
 class PersonWorkExperience implements Cloneable {
 
@@ -210,12 +212,12 @@ class PersonWorkExperience implements Cloneable {
 
 class CloningPersonWorkExperience {
 	public static void main(String args[]) throws CloneNotSupportedException {
-		
+
 		PersonWorkExperience personworkexp = new PersonWorkExperience("Ram", "SwedBank", "Analyst", 1462, 2, 1000);
 
 		System.out.println("Output test:3, Persons WORK Experience");
 
-		//original
+		// original
 		System.out.println("Original object:" + " " + "Person Name:" + " " + personworkexp.PersonName + ", " + "ID:"
 				+ " " + personworkexp.PersonID + ", " + " OfficeName:" + " " + personworkexp.OfficeName + ", "
 				+ "Work Position:" + " " + personworkexp.Workposition + ", " + "Work, Years of Experience:" + " "
@@ -241,7 +243,7 @@ class CloningPersonWorkExperience {
 				+ "Work Position:" + " " + personworkexp.Workposition + ", " + "Work, Years of Experience:" + " "
 				+ personworkexp.WorkPeriod + ", " + "Annual Salary in EUR:" + " " + personworkexp.AnnualSalary);
 
-		//cloned after updating.
+		// cloned after updating.
 		System.out.println("Cloned Object after updating original object:" + " " + "Person Name:" + " "
 				+ clonedPersonWorkExperience.PersonName + ", " + "ID:" + " " + clonedPersonWorkExperience.PersonID
 				+ ", " + " OfficeName:" + " " + clonedPersonWorkExperience.OfficeName + ", " + "Work Position:" + " "
@@ -250,14 +252,15 @@ class CloningPersonWorkExperience {
 				+ clonedPersonWorkExperience.AnnualSalary);
 
 		// this is to seperate line
-     	String newLine = System.getProperty("line.separator"); 
+		String newLine = System.getProperty("line.separator");
 		System.out.println(" " + newLine + " "); // print newline
 	}
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Test 4: Sibilings BMI(Body mass index)  Test 4 is the comparision of 2 sibilings according to their BMI.
+// Test 4: Sibilings BMI(Body mass index) Test 4 is check, clone and update the BMI(Body mass index) of two siblings at two different age period.
+// sibilings according to their BMI.
 
 // Child1
 class Child1 implements Cloneable {
@@ -268,7 +271,6 @@ class Child1 implements Cloneable {
 	int Weight;
 	int BMI;
 
-	
 	public Child1(String Name, int Age, int Height, int Weight, int BMI) {
 
 		this.Name = Name;
@@ -284,7 +286,7 @@ class Child1 implements Cloneable {
 
 }
 
-//child 2
+// child 2
 class Child2 implements Cloneable {
 
 	String Name;
@@ -326,7 +328,7 @@ class CloneChild {
 				+ "Child2 Age:" + " " + child2.Age + ", " + " Child2 Height in CM:" + " " + child2.Height + ", "
 				+ "Child2 Weight in kg:" + " " + child2.Weight + ", " + "Child2 BMI:" + " " + child2.BMI);
 
-		// Clone
+		// Clone //Both the original object of the Children are cloned.
 		Child1 clonedChild1 = (Child1) child1.clone();
 		Child2 clonedChild2 = (Child2) child2.clone();
 
@@ -371,7 +373,7 @@ class CloneChild {
 				+ "Child2 BMI:" + " " + clonedChild2.BMI);
 
 		// for free space
-		String newLine = System.getProperty("line.separator"); 
+		String newLine = System.getProperty("line.separator");
 		System.out.println(" " + newLine + " "); // print newline
 
 	}
